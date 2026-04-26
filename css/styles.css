@@ -12,6 +12,17 @@
 html {
   scroll-behavior: smooth;
 }
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* Also apply to your main wrapper or the row if needed */
+.row {
+    margin-right: 0;
+    margin-left: 0;
+}
+
 
 body {
   font-family: 'Inter', sans-serif;
@@ -19,6 +30,7 @@ body {
   color: var(--text-dark);
   overflow-x: hidden;
   opacity: 0;
+  /* Handled by JS for fade-in */
   transition: opacity 0.6s ease-in-out;
 }
 
@@ -36,9 +48,13 @@ body.loaded {
   background: var(--bg-light);
 }
 
+/* Removed heavy radial-gradient animation for performance */
+
+/* High-Contrast Card Utilities */
 .glass-card {
   background: var(--solid-bg);
   border: 1px solid var(--border-color);
+  /* Prevent 'flicker' during AOS animations */
   backface-visibility: hidden;
   transform: translateZ(0);
   transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
@@ -51,21 +67,25 @@ body.loaded {
 }
 
 .glass-nav {
-  background: #000000 !important;
+  background: #000000; /*!important;*/
+  /* Keep navbar strictly black */
   border-bottom: 1px solid var(--border-color);
 }
 
 .glass-nav .navbar-brand,
 .glass-nav .nav-link {
   color: #ffffff !important;
+  /* Ensure text in nav is white */
 }
 
 .glass-nav .nav-link:hover,
 .glass-nav .nav-link.active {
   color: #ffc107 !important;
+  /* Lighter grey for hover/active state on black */
   border-bottom: 2px solid #cccccc;
 }
 
+/* Typography & Colors */
 .text-accent {
   color: var(--accent);
 }
@@ -107,6 +127,9 @@ body.loaded {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
+/* Navbar Active State - Managed inside .glass-nav */
+
+/* Timeline (Education) */
 .timeline {
   position: relative;
   padding-left: 2rem;
@@ -130,18 +153,7 @@ body.loaded {
   border: 3px solid var(--bg-light);
 }
 
-.progress {
-  background-color: var(--solid-bg);
-  height: 8px;
-  border-radius: 4px;
-  overflow: hidden;
-  border: 1px solid var(--border-color);
-}
-
-.progress-bar {
-  background-color: var(--accent);
-}
-
+/* Experience Accordion */
 .accordion-item {
   background: transparent;
   border: none;
@@ -173,6 +185,7 @@ body.loaded {
   color: var(--text-dark) !important;
 }
 
+/* Project Overlay */
 .project-card {
   position: relative;
   overflow: hidden;
@@ -198,6 +211,7 @@ body.loaded {
   opacity: 1;
 }
 
+/* Contact Form */
 .form-control {
   background: var(--solid-bg);
   border: 1px solid var(--border-color);
@@ -215,6 +229,7 @@ body.loaded {
   color: #888;
 }
 
+/* Override text colors globally where forced text classes were used */
 .text-light {
   color: var(--text-dark) !important;
 }
