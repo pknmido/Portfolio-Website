@@ -1,6 +1,5 @@
-// js/script.js
 document.addEventListener("DOMContentLoaded", () => {
-    // 0. Initialize Vanta.js NET background
+    // Initialize Vanta.js NET background
     const currentPage = window.location.pathname.split("/").pop() || "index.html";
     
     if (typeof VANTA !== 'undefined') {
@@ -22,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 0.5 Initialize Anime.js for the hero name (run once)
+    // Initialize Anime.js
     const animeNameArgs = document.querySelectorAll('#anime-name .letter');
     if (animeNameArgs.length > 0) {
         anime.timeline({ loop: false })
@@ -37,17 +36,17 @@ document.addEventListener("DOMContentLoaded", () => {
             });
     }
 
-    // 1. Initialize Animate On Scroll (AOS)
+    // Initialize Animate On Scroll (AOS)
     AOS.init({
-        duration: 600, // Adjusted for smoother, less abrupt feel
+        duration: 600,
         easing: 'ease-out',
         once: true
     });
 
-    // 2. Smooth Page Transition (Fade-in on load)
+    // Smooth Page Transition (Fade-in on load)
     document.body.classList.add('loaded');
 
-    // 3. Dynamic Active Nav Link Highlighting
+    // Dynamic Active Nav Link Highlighting
     const currentPath = window.location.pathname.split("/").pop() || "index.html";
     const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
 
@@ -59,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // 4. Contact Form Validation
+    // Contact Form Validation -- only static web version bcz github doesn't support dynamic hosting
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', function (e) {
